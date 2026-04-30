@@ -25,7 +25,7 @@ Cada ADR (Architecture Decision Record) tiene:
 Hay que elegir framework frontend para Cadenzy. Las dos opciones serias son React y Angular. Hay también valor en aprender Angular para ampliar empleabilidad.
 
 ### Decisión
-**React 18 + Vite** para Cadenzy. Angular se aborda en un proyecto separado posterior.
+**React 19 + Vite** para Cadenzy. Angular se aborda en un proyecto separado posterior.
 
 ### Consecuencias
 ✅ Mercado más grande (~2.3x búsquedas laborales que Angular).
@@ -220,6 +220,29 @@ El nombre original era "Tracker", muy genérico. Necesitábamos un nombre único
 - **Tempoly:** segunda opción, descartada por sonar derivado de "Tempo" (time tracking en Jira).
 
 ---
+
+## ADR-009 — React 19 en lugar de React 18
+
+**Fecha:** 2026-04-30
+**Estado:** ✅ Aceptada
+**Reemplaza parcialmente:** ADR-001
+
+### Contexto
+ADR-001 estableció "React 18" como framework. Al ejecutar `npm create vite@latest` en abril 2026, Vite generó por default React 19.2.5. Hubo que decidir si forzar a React 18 (fidelidad al plan) o adoptar 19.
+
+### Decisión
+**React 19.2** como versión de producción de Cadenzy.
+
+### Consecuencias
+✅ Versión madura y default de la herramienta de scaffolding en 2026 — alineado con la industria.
+✅ Acceso al hook `use()`, mejor concurrent rendering, y mejoras de hidration.
+✅ Todas las libs del stack (TanStack Query, dnd-kit, Tiptap, cmdk, Framer Motion) son compatibles con React 19 desde 2024-2025.
+✅ "Construido en React 19" se ve más actual en CV que "React 18".
+❌ Algún tutorial viejo de React 18 puede tener leves diferencias (ref como prop, etc.).
+❌ Vite 8 también es nuevo, podemos tener bugs de bordes.
+
+### Alternativas consideradas
+- **Forzar React 18:** descartado. Elegir activamente una versión vieja para un proyecto nuevo no es defendible en entrevista, y pelearíamos con Vite cada actualización.
 
 ## Plantilla para nuevos ADRs
 
